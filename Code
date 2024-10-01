@@ -1,0 +1,78 @@
+int touchsensor = 2;
+  int led1=9,led2=10,led3=11;
+  int mode=0;
+
+
+  void setup()
+  {
+    pinMode(touchsensor, INPUT);
+    pinMode(led1, OUTPUT);
+    pinMode(led2, OUTPUT);
+    pinMode(led3, OUTPUT);
+
+  }
+
+  void loop()
+  {
+    if(digitalRead(touchsensor) == 1) //sensor is touched
+    {
+      //add 1 to the current value of the mode variable
+      mode=mode+1;
+    }
+
+
+    //check for the current value of the mode variable
+    //and execute the appropriate LED behavior.    
+    if (mode==0){
+      //turn of all LEDs
+      digitalWrite(led1,LOW);
+      digitalWrite(led2,LOW);
+      digitalWrite(led3,LOW);
+      delay(500);//time to next touch sensor reading
+      
+    }
+    if (mode==1){
+      //only LED 1 is on
+      digitalWrite(led1,HIGH);
+      digitalWrite(led2,LOW);
+      digitalWrite(led3,LOW);
+      delay(500);//time to next touch sensor reading
+    }
+    else if(mode==2){
+      //only LED 2 is on
+      digitalWrite(led1,LOW);
+      digitalWrite(led2,HIGH);
+      digitalWrite(led3,LOW);
+      delay(500);//time to next touch sensor reading
+    }
+    else if(mode==3){
+      //only LED 3 is on
+      digitalWrite(led1,LOW);
+      digitalWrite(led2,LOW);
+      digitalWrite(led3,HIGH);
+      delay(500);//time to next touch sensor reading
+    }
+    else if(mode==4){
+      //blink all LEDs
+      
+      digitalWrite(led1,HIGH);
+      digitalWrite(led2,HIGH);
+      digitalWrite(led3,HIGH);
+      delay(500);
+      digitalWrite(led1,LOW);
+      digitalWrite(led2,LOW);
+      digitalWrite(led3,LOW);
+      delay(500);
+    }
+    else if(mode==5){  
+      //turn off all LEDs
+      digitalWrite(led1,LOW);
+      digitalWrite(led2,LOW);
+      digitalWrite(led3,LOW);
+      
+      //reset the mode variable to 0
+      mode=0;
+      delay(500);//time to next touch sensor reading
+    }
+
+  }
