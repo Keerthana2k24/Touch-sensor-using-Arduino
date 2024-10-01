@@ -3,10 +3,10 @@
 This Arduino project controls three LEDs based on the input from a touch sensor. Each time the sensor is touched, the lighting mode changes, cycling through different LED behaviors.
 
 ## Components Required
-- 1x Arduino Board (e.g., Arduino Uno)
+- 1x Arduino Board 
 - 1x Touch Sensor
 - 3x LEDs
-- 3x Resistors (220 ohms)
+- 3x Resistors 
 - Jumper Wires
 - Breadboard
 
